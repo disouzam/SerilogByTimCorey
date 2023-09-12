@@ -4,6 +4,10 @@ namespace SerilogDemo
     {
         public static void Main(string[] args)
         {
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
