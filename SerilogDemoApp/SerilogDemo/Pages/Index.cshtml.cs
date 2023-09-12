@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SerilogDemo.Pages
 {
@@ -14,7 +13,7 @@ namespace SerilogDemo.Pages
 
         public void OnGet()
         {
-
+            _logger.LogInformation("You requested the Index page.");
         }
     }
 }
