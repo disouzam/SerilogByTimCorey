@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +12,8 @@ namespace SerilogDemo
         public static void Main(string[] args)
         {
             var configuration = new ConfigurationBuilder()
-                .AddJsonFile("serilogdemo.settings.json")
+                .AddJsonFile("serilogdemo.settings.json", false, true)
+                .AddJsonFile($"serilogdemo.settings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true, true)
                 .Build();
 
             var builder = WebApplication.CreateBuilder(args);
