@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Serilog;
+
 namespace SerilogDemo
 {
     public static class Program
@@ -15,6 +17,10 @@ namespace SerilogDemo
                 .AddJsonFile("serilogdemo.settings.json", false, true)
                 .AddJsonFile($"serilogdemo.settings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true, true)
                 .Build();
+
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
 
             var builder = WebApplication.CreateBuilder(args);
 
