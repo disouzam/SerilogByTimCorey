@@ -5,7 +5,7 @@ namespace SerilogDemo
         public static void Main(string[] args)
         {
             var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("serilogdemo.settings.json")
                 .Build();
 
             var builder = WebApplication.CreateBuilder(args);
