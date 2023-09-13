@@ -32,6 +32,12 @@
           "path": "{Insert file path, down to file name and extension}",
           "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
         }
+      },
+      {
+        "Name": "Seq",
+        "Args": {
+          "serverUrl": "http://localhost:8081"
+        }
       }
     ]
   }
