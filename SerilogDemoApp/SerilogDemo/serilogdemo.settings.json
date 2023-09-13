@@ -1,9 +1,22 @@
 {
-  "Logging": {
-    "LogLevel": {
+  "AllowedHosts": "*",
+  "Serilog": {
+    "Using": [],
+    "MinimumLevel": {
       "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithProcessId",
+      "WithThreadId"
+    ],
+    "WriteTo": [
+      { "Name": "Console" }
+    ]
+  }
 }
